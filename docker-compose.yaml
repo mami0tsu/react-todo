@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  app:
+    image: node:16.13.0-bullseye
+    container_name: node-dev-container
+    volumes:
+      - type: bind
+        source: .
+        target: /app
+    ports:
+      - target: 80
+        published: 8080
+        protocol: tcp
+        mode: host
+
+    working_dir: /app
+    stdin_open: true
+    tty: true
