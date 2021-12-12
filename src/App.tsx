@@ -1,5 +1,7 @@
-import React from "react";
-import { useState } from "react";
+import React from 'react';
+import { useState } from 'react';
+
+import TaskItem from './components/TaskItem'
 
 type Task = {
   id: number,
@@ -61,20 +63,12 @@ const App: React.FC = () => {
         tasks.length <= 0 ? 'No todo items.' : 
         <ul>
         { tasks.map( task => (
-          <li className={task.done ? 'done' : ''}>
-          <label>
-            <input
-              type="checkbox"
-              className="checkbox-input"
-              onClick={() => handleDone(task)}
-              defaultChecked={task.done}
-            />
-            <span className="checkbox-label">{ task.title }</span>
-          </label>
-          <button
-            onClick={() => handleDelete(task)}
-          >Delete</button>
-          </li>
+          <TaskItem
+            key={task.id}
+            task={task}
+            handleDone={handleDone}
+            handleDelete={handleDelete}
+          />
         )) }
         </ul>
       }
