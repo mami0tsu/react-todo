@@ -1,5 +1,9 @@
+import { Button, Block, Form } from 'react-bulma-components'
+
 import React, { useState } from 'react'
 import { Task } from './Types'
+
+const { Control, Field, Input } = Form
 
 type Props = {
   tasks: Task[],
@@ -28,14 +32,20 @@ const TaskInputForm: React.VFC<Props> = ({tasks, setTasks}): JSX.Element => {
   }
 
   return (
-    <div className="inputForm">
-      <input
-        type="text"
-        className="input"
-        value={inputTitle}
-        onChange={handleInputChange}
-      />
-      <button onClick={handleSubmit}>Submit</button>
+    <div>
+      <Block>
+        <Field className='is-grouped'>
+          <Control className='is-expanded'>
+            <Input
+              type='text'
+              className='input'
+              value={inputTitle}
+              onChange={handleInputChange}
+            />
+          </Control>
+          <Button onClick={handleSubmit}>Submit</Button>
+        </Field>
+      </Block>
     </div>
   )
 }

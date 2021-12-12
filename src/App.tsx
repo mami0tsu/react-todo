@@ -1,3 +1,5 @@
+import { Block } from 'react-bulma-components'
+
 import React from 'react';
 import { useState } from 'react';
 import TaskInputForm from './components/TaskInputForm'
@@ -22,7 +24,9 @@ const App: React.VFC = (): JSX.Element => {
 
   return (
     <div>
-      <TaskInputForm tasks={tasks} setTasks={setTasks} />
+      <Block>
+        <TaskInputForm tasks={tasks} setTasks={setTasks} />
+      </Block>
       <TaskList tasks={tasks} setTasks={setTasks} />
     </div>
   )

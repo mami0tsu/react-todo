@@ -20,16 +20,16 @@ const TaskList: React.VFC<Props> = ({ tasks, setTasks }): JSX.Element => {
     <div>
     {
       tasks.length <= 0 ? 'No todo items.' : 
-      <ul>
-      { tasks.map( task => (
-        <TaskItem
-          key={task.id}
-          task={task}
-          handleDone={handleDone}
-          handleDelete={handleDelete}
-        />
-      )) }
-      </ul>
+      <div>
+        { tasks.map( task => (
+          <TaskItem
+            key={task.id}
+            task={task}
+            handleDone={handleDone}
+            handleDelete={handleDelete}
+          />
+        )) }
+      </div>
     }
     </div>
   )
