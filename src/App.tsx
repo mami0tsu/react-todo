@@ -1,8 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
 
-import TaskItem from './components/TaskItem'
-
 type Task = {
   id: number,
   title: string,
@@ -39,14 +37,6 @@ const App: React.FC = () => {
     setInputTitle('')
   }
 
-  const handleDone = (task: Task) => {
-    setTasks(prev => prev.map(t => t.id === task.id ? {...task, done: !task.done} : t))
-  }
-
-  const handleDelete = (task: Task) => {
-    setTasks(prev => prev.filter(t => t.id !== task.id))
-  }
-
   return (
     <div className="App">
       <div className="inputForm">
@@ -57,21 +47,6 @@ const App: React.FC = () => {
           onChange={handleInputChange}
         />
         <button onClick={handleSubmit}>Submit</button>
-      </div>
-      <div>
-      {
-        tasks.length <= 0 ? 'No todo items.' : 
-        <ul>
-        { tasks.map( task => (
-          <TaskItem
-            key={task.id}
-            task={task}
-            handleDone={handleDone}
-            handleDelete={handleDelete}
-          />
-        )) }
-        </ul>
-      }
       </div>
     </div>
   )
