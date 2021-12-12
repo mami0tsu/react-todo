@@ -13,7 +13,7 @@ services:
         published: 8080
         protocol: tcp
         mode: host
-
     working_dir: /app
+    entrypoint: ["/bin/bash"]
     stdin_open: true
     tty: true
