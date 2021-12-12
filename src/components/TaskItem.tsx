@@ -1,5 +1,9 @@
+import { Box, Button, Form } from 'react-bulma-components'
+
 import React from 'react'
 import { Task } from './Types'
+
+const { Checkbox, Control, Field, Label } = Form
 
 type Props = {
   task: Task,
@@ -9,20 +13,19 @@ type Props = {
 
 const TaskItem: React.VFC<Props> = ({ task, handleDone, handleDelete }): JSX.Element => {
   return (
-    <li className={task.done ? 'done' : ''}>
-    <label>
-      <input
-        type="checkbox"
-        className="checkbox-input"
-        onClick={() => handleDone(task)}
-        defaultChecked={task.done}
-      />
-      <span className="checkbox-label">{ task.title }</span>
-    </label>
-    <button
-      onClick={() => handleDelete(task)}
-    >Delete</button>
-    </li>
+    <Box>
+      <Field className='has-addons'>
+        <Control className='is-expanded'>
+          <Checkbox
+            onClick={() => handleDone(task)}
+            defaultChecked={task.done}
+          >{ task.title }</Checkbox>
+        </Control>
+        <Button
+          onClick={() => handleDelete(task)}
+        >Delete</Button>
+      </Field>
+    </Box>
   )
 }
 
