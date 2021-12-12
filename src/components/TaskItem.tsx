@@ -7,7 +7,7 @@ type Props = {
   handleDelete: (task: Task) => void 
 }
 
-const TaskItem:React.VFC<Props> = ({ task, handleDone, handleDelete }): JSX.Element => {
+const TaskItem: React.VFC<Props> = ({ task, handleDone, handleDelete }): JSX.Element => {
   return (
     <li className={task.done ? 'done' : ''}>
     <label>

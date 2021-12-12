@@ -12,16 +12,16 @@ type Task = {
 const initialState: Task[] = [
   {
     id: 1,
-    title: '1st task',
+    title: 'sample task',
     done: false
   }
 ]
 
-const App: React.FC = () => {
+const App: React.VFC = (): JSX.Element => {
   const [ tasks, setTasks ] = useState(initialState)
 
   return (
-    <div className="App">
+    <div>
       <TaskInputForm tasks={tasks} setTasks={setTasks} />
       <TaskList tasks={tasks} setTasks={setTasks} />
     </div>

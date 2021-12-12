@@ -7,7 +7,7 @@ type Props = {
   setTasks: React.Dispatch<React.SetStateAction<Task[]>>
 }
 
-const TaskList: React.VFC<Props> = ({ tasks, setTasks }) => {
+const TaskList: React.VFC<Props> = ({ tasks, setTasks }): JSX.Element => {
   const handleDone = (task: Task) => {
     setTasks(prev => prev.map(t => t.id === task.id ? {...task, done: !task.done} : t))
   }
